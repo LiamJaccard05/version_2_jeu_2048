@@ -1,7 +1,7 @@
 """
 Auteur      : Liam Jaccard
 Date        : 03.02.2023
-Version     : 0.1
+Version     : 0.2
 Description : Projet 2048
 """
 from tkinter import *
@@ -94,7 +94,7 @@ def display():
 #crée une nouvelle partie
 def nouvelle_partie():
     global Chiffres
-    Chiffres = [[0,0,0,0], [0,0,0,0],[0,0,0,0],[0,0,0,0]]
+    Chiffres = [[2,0,2,0], [2,8,4,2],[2,2,4,4],[2,0,4,0]]
     display()
 
 # reçoit 4 nombres, tasse vers le a,  et en renvoie 5
@@ -123,13 +123,39 @@ def tasse_4(a,b,c,d):
         c,d = c+d,0
 
     # ici on retourne les cinq valeurs en un tableau
-    temp=[a,b,c,d,nmove] #tableau temporaire de fin
+    temp=[a,b,c,d] #tableau temporaire de fin
     return temp
 
+def random_place():
 
-def move_droite():
-tasse_4()
 
+#bouge a gauche
+def move_left(event):
+    for ligne in range(4):
+        [Chiffres[ligne][0],Chiffres[ligne][1],Chiffres[ligne][2],Chiffres[ligne][3]]=tasse_4(Chiffres[ligne][0],Chiffres[ligne][1],Chiffres[ligne][2],Chiffres[ligne][3])
+    display()
+fenetre.bind("a",move_left)
+
+#bouge a droite
+def move_right(event):
+    for ligne in range(4):
+        [Chiffres[ligne][3],Chiffres[ligne][2],Chiffres[ligne][1],Chiffres[ligne][0]]=tasse_4(Chiffres[ligne][3],Chiffres[ligne][2],Chiffres[ligne][1],Chiffres[ligne][0])
+    display()
+fenetre.bind("d",move_right)
+
+#bouge en haut
+def move_top(event):
+    for ligne in range(4):
+        [Chiffres[0][ligne],Chiffres[1][ligne],Chiffres[2][ligne],Chiffres[3][ligne]]=tasse_4(Chiffres[0][ligne],Chiffres[1][ligne],Chiffres[2][ligne],Chiffres[3][ligne])
+    display()
+fenetre.bind("w",move_top)
+
+#bouge en bas
+def move_down(event):
+    for ligne in range(4):
+        [Chiffres[3][ligne],Chiffres[2][ligne],Chiffres[1][ligne],Chiffres[0][ligne]]=tasse_4(Chiffres[3][ligne],Chiffres[2][ligne],Chiffres[1][ligne],Chiffres[0][ligne])
+    display()
+fenetre.bind("s",move_down)
 
 
 #button
