@@ -94,7 +94,7 @@ def display():
 #crée une nouvelle partie
 def nouvelle_partie():
     global Chiffres
-    Chiffres = [[2,0,2,0], [2,8,4,2],[2,2,4,4],[2,0,4,0]]
+    Chiffres = [[0,0,0,0], [0,0,0,0],[0,0,0,0],[0,0,0,0]]
     display()
 
 # reçoit 4 nombres, tasse vers le a,  et en renvoie 5
@@ -127,9 +127,9 @@ def tasse_4(a,b,c,d):
     return temp
 
 def random_place():
+    print()
 
-
-#bouge a gauche
+#bouge a gauche aidé par kushtrim
 def move_left(event):
     for ligne in range(4):
         [Chiffres[ligne][0],Chiffres[ligne][1],Chiffres[ligne][2],Chiffres[ligne][3]]=tasse_4(Chiffres[ligne][0],Chiffres[ligne][1],Chiffres[ligne][2],Chiffres[ligne][3])
