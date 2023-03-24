@@ -1,7 +1,7 @@
 """
 Auteur      : Liam Jaccard
-Date        : 03.02.2023
-Version     : 0.2
+Date        : 24.03.2023
+Version     : 0.3
 Description : Projet 2048
 """
 from tkinter import *
@@ -59,8 +59,8 @@ score = Frame(fenetre, height="60" , width="80" , background="#9b9b9b",borderwid
 
 #carré du score
 label_2048 = Label(fenetre, text="2048", bg="#B6D7A8", font=("Arial",50))
-Label_score = Label(score, text="Score:", bg="#9b9b9b",fg="white", font=("Arial",10))
-Label_Top_score = Label(top_score, text="Top Score:",fg="white", bg="#9b9b9b", font=("Arial",10))
+Label_score = Label(score, text="Score :", bg="#9b9b9b",fg="white", font=("Arial",10))
+Label_Top_score = Label(top_score, text="Top Score :",fg="white", bg="#9b9b9b", font=("Arial",10))
 
 #packs
 label_2048.place(x=170, y=20)
@@ -97,7 +97,7 @@ def nouveau():
     global Chiffres
     global Score
     Score = 0
-    Label_score.configure(text=f"{Score}")
+    Label_score.configure(text=f"Score :\n{Score}")
 
     possibles  = [0,1,2,3]
     Chiffres =[[0, 0, 0, 0],
@@ -144,10 +144,10 @@ def tasse_4(a,b,c,d):
         nmove += 1
 
     #mise à jour des scores
-    Label_score.configure(text=f"{Score}")
+    Label_score.configure(text=f"Score :\n{Score}")
     if Score > Top:
         Top = Score
-        Label_Top_score.configure(text=f"{Top}")
+        Label_Top_score.configure(text=f"Top Score :\n{Top}")
 
     # ici on retourne les cinq valeurs en un tableau
     temp=[a,b,c,d,nmove] #tableau temporaire de fin
